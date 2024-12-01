@@ -6,12 +6,24 @@ class StatusPengajuanScreen extends StatelessWidget {
     {"judul": "Judul 2", "status": "Disetujui", "keterangan": "Judul sudah diterima."},
   ];
 
+  StatusPengajuanScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Status Pengajuan"),
-        backgroundColor: Colors.blueAccent,
+        title: const Text(
+          "Status Pengajuan",
+          style: TextStyle(color: Color.fromARGB(255, 252, 252, 252)), // Mengubah warna teks menjadi putih
+        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white), // Tombol kembali dengan warna putih
+          onPressed: () {
+            Navigator.pop(context); // Menutup halaman ini dan kembali ke halaman sebelumnya
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -24,7 +36,7 @@ class StatusPengajuanScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -33,13 +45,13 @@ class StatusPengajuanScreen extends StatelessWidget {
                     // Judul pengajuan
                     Text(
                       item["judul"]!,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueAccent,
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     // Status dan keterangan
                     Text(
                       "${item["status"]!}: ${item["keterangan"]!}",
@@ -48,7 +60,7 @@ class StatusPengajuanScreen extends StatelessWidget {
                         color: Colors.grey[700],
                       ),
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     // Tombol Lihat Detail
                     Align(
                       alignment: Alignment.bottomRight,
@@ -59,11 +71,11 @@ class StatusPengajuanScreen extends StatelessWidget {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: Text("Detail Pengajuan"),
+                                title: const Text("Detail Pengajuan"),
                                 content: Text("Menampilkan detail untuk ${item["judul"]!}."),
                                 actions: <Widget>[
                                   TextButton(
-                                    child: Text("Tutup"),
+                                    child: const Text("Tutup"),
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
@@ -73,10 +85,10 @@ class StatusPengajuanScreen extends StatelessWidget {
                             },
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           "Lihat Detail",
                           style: TextStyle(
-                            color: Colors.blueAccent,
+                            color: Color.fromARGB(255, 0, 0, 0),
                             fontWeight: FontWeight.bold,
                           ),
                         ),

@@ -9,50 +9,81 @@ class PengajuanJudulScreen extends StatelessWidget {
   final TextEditingController pembimbing2Controller = TextEditingController();
   final TextEditingController daftarPustakaController = TextEditingController();
 
+  PengajuanJudulScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pengajuan Judul Skripsi"),
-        backgroundColor: Colors.blueAccent,
+        title: const Text(
+          "Pengajuan Judul Skripsi",
+          style: TextStyle(color: Colors.white), // Warna teks putih untuk judul AppBar
+        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white), // Ikon kembali putih
+          onPressed: () {
+            Navigator.pop(context); // Menutup halaman ini dan kembali ke halaman sebelumnya
+          },
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildTextField(judulController, "Judul Skripsi"),
-              _buildTextField(objekPenelitianController, "Objek Penelitian"),
-              _buildTextField(latarBelakangController, "Latar Belakang", maxLines: 5),
-              _buildTextField(tujuanPenelitianController, "Tujuan Penelitian", maxLines: 3),
-              _buildTextField(pembimbing1Controller, "Usulan Pembimbing 1"),
-              _buildTextField(pembimbing2Controller, "Usulan Pembimbing 2"),
-              _buildTextField(daftarPustakaController, "Daftar Pustaka Utama", maxLines: 3),
-              SizedBox(height: 24),
-              _buildSubmitButton(context),
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [const Color.fromARGB(255, 251, 251, 251), Colors.teal.shade300],
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+                _buildTextField(judulController, "Judul Skripsi"),
+                _buildTextField(objekPenelitianController, "Objek Penelitian"),
+                _buildTextField(latarBelakangController, "Latar Belakang", maxLines: 5),
+                _buildTextField(tujuanPenelitianController, "Tujuan Penelitian", maxLines: 3),
+                _buildTextField(pembimbing1Controller, "Usulan Pembimbing 1"),
+                _buildTextField(pembimbing2Controller, "Usulan Pembimbing 2"),
+                _buildTextField(daftarPustakaController, "Daftar Pustaka Utama", maxLines: 3),
+                const SizedBox(height: 24),
+                _buildSubmitButton(context),
+                const SizedBox(height: 16),
+                // // Tombol Kembali di bawah
+                // _buildBackButton(context),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
+  // Membuat TextField dengan tampilan lebih modern
   Widget _buildTextField(TextEditingController controller, String label, {int maxLines = 1}) {
     return Card(
-      elevation: 4,
+      elevation: 6,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
       ),
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 12),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
         child: TextField(
           controller: controller,
+          style: const TextStyle(color: Colors.black),
           decoration: InputDecoration(
             labelText: label,
-            labelStyle: TextStyle(color: Colors.blueAccent),
+            labelStyle: const TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color.fromARGB(255, 0, 0, 0), width: 2),
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
           maxLines: maxLines,
@@ -61,24 +92,26 @@ class PengajuanJudulScreen extends StatelessWidget {
     );
   }
 
+  // Tombol Kirim
   Widget _buildSubmitButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        // Logic pengajuan
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Judul Skripsi telah diajukan!")),
+          const SnackBar(content: Text("Judul Skripsi telah diajukan!")),
         );
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blueAccent,
-        padding: EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+        backgroundColor: const Color.fromARGB(255, 59, 127, 170),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(12),
         ),
+        shadowColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.3),
+        elevation: 6,
       ),
-      child: Text(
+      child: const Text(
         "Kirim",
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 0, 0, 0)), // Teks tombol putih
       ),
     );
   }

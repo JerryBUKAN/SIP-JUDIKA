@@ -4,17 +4,19 @@ import 'package:flutter/material.dart';
 // import '../screens/mahasiswa/profil_screen.dart';
 
 class MahasiswaDrawer extends StatelessWidget {
+  const MahasiswaDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
+          const DrawerHeader(
+            decoration: BoxDecoration(color: Color.fromARGB(255, 23, 77, 124)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.person, size: 60, color: Colors.white),
+                Icon(Icons.person, size: 60, color: Color.fromARGB(255, 243, 243, 243)),
                 SizedBox(height: 8),
                 Text(
                   "Mahasiswa",
@@ -24,29 +26,29 @@ class MahasiswaDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home),
-            title: Text("Dashboard"),
+            leading: const Icon(Icons.home),
+            title: const Text("Dashboard"),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/dashboard');
             },
           ),
           ListTile(
-            leading: Icon(Icons.edit),
-            title: Text("Pengajuan Judul"),
+            leading: const Icon(Icons.edit),
+            title: const Text("Pengajuan Judul"),
             onTap: () {
               Navigator.pushNamed(context, '/pengajuanJudul');
             },
           ),
           ListTile(
-            leading: Icon(Icons.list),
-            title: Text("Status Pengajuan"),
+            leading: const Icon(Icons.list),
+            title: const Text("Status Pengajuan"),
             onTap: () {
               Navigator.pushNamed(context, '/statusPengajuan');
             },
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text("Profil"),
+            leading: const Icon(Icons.person),
+            title: const Text("Profil"),
             onTap: () {
               Navigator.pushNamed(context, '/profil');
             },

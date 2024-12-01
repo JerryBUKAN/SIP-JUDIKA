@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -38,17 +40,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 150,
                       height: 150,
                     ),
-                    SizedBox(height: 18),
+                    const SizedBox(height: 18),
                     // Judul
-                    Text(
+                    const Text(
                       "Sistem Pengajuan Judul Informatika",
                       style: TextStyle(
                         fontSize: 23,
                         fontWeight: FontWeight.bold,
-                        color: const Color.fromARGB(255, 245, 245, 245), // Sesuaikan dengan desain
+                        color: Color.fromARGB(255, 245, 245, 245), // Sesuaikan dengan desain
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     // Text(
                     //   "Sistem Pengajuan Judul Skripsi Informatika",
                     //   textAlign: TextAlign.center,
@@ -57,15 +59,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     //     color: const Color.fromARGB(255, 255, 252, 252),
                     //   ),
                     // ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Input NPM
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 300), // Maksimal lebar
+                      constraints: const BoxConstraints(maxWidth: 300), // Maksimal lebar
                       child: TextField(
                         controller: npmController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.person, color: Colors.blueAccent),
+                          prefixIcon: const Icon(Icons.person, color: Colors.blueAccent),
                           labelText: "NIDN/NPM",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -75,15 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     // Input Password
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 300),
+                      constraints: const BoxConstraints(maxWidth: 300),
                       child: TextField(
                         controller: passwordController,
                         obscureText: !isPasswordVisible,
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.lock, color: Colors.blueAccent),
+                          prefixIcon: const Icon(Icons.lock, color: Colors.blueAccent),
                           labelText: "Password",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -115,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             // Tambahkan aksi untuk lupa password
                           },
-                          child: Text(
+                          child: const Text(
                             'Lupa password?',
                             style: TextStyle(
                               color: Colors.blueAccent,
@@ -125,17 +127,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     // Tombol Login
                     ConstrainedBox(
-                      constraints: BoxConstraints(
+                      constraints: const BoxConstraints(
                         maxWidth: 2000,  // Lebar tombol lebih besar
                         minHeight: 40,  // Tinggi minimal tombol
                       ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blueAccent,
-                          padding: EdgeInsets.symmetric(vertical: 12.0),  // Menambah padding vertikal
+                          padding: const EdgeInsets.symmetric(vertical: 12.0),  // Menambah padding vertikal
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
@@ -147,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             MaterialPageRoute(builder: (context) => DashboardScreen()),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           "Login",
                           style: TextStyle(
                             fontSize: 15,
