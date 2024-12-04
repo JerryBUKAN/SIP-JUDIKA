@@ -7,13 +7,17 @@ class ProfilScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profil Mahasiswa"),
-        backgroundColor: Colors.blueAccent,
+        title: const Text(
+          "Profil Mahasiswa",
+          style: TextStyle(color: Colors.white), // Menambahkan style untuk teks menjadi putih
+        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        iconTheme: const IconThemeData(color: Colors.white), // Menambahkan ini untuk membuat ikon back menjadi putih
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue.shade200, Colors.blueAccent.shade700],
+            colors: [const Color.fromARGB(255, 230, 244, 255), const Color.fromARGB(255, 244, 247, 255)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -28,7 +32,7 @@ class ProfilScreen extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 70,
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.person, size: 80, color: Colors.blueAccent),
+                    child: Icon(Icons.person, size: 80, color: Color.fromARGB(255, 0, 0, 0)),
                   ),
                 ),
                 const SizedBox(height: 20),

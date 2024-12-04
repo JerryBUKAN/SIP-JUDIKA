@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-// import '../screens/mahasiswa/status_pengajuan_screen.dart';
-// import '../screens/mahasiswa/pengajuan_judul_screen.dart';
-// import '../screens/mahasiswa/profil_screen.dart';
 
 class MahasiswaDrawer extends StatelessWidget {
   const MahasiswaDrawer({super.key});
@@ -51,6 +48,16 @@ class MahasiswaDrawer extends StatelessWidget {
             title: const Text("Profil"),
             onTap: () {
               Navigator.pushNamed(context, '/profil');
+            },
+          ),
+          // Tambahkan Log Out di sini
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text(
+              "Log Out",
+            ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/login'); // Kembali ke halaman login
             },
           ),
         ],
