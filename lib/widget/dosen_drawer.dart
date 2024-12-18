@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class MahasiswaDrawer extends StatelessWidget {
-  const MahasiswaDrawer({super.key});
+class DosenDrawer extends StatelessWidget {
+  const DosenDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Header Drawer
-    final String headerTitle = "Mahasiswa";
+    final String headerTitle = "Dosen";
     final IconData headerIcon = Icons.person;
 
     // Menu untuk mahasiswa
     final List<Map<String, dynamic>> menuItems = [
-      {"icon": Icons.home, "title": "Dashboard", "route": '/dashboard'},
-      {"icon": Icons.edit, "title": "Pengajuan Judul", "route": '/pengajuan_judul_screen'},
-      {"icon": Icons.list, "title": "Status Pengajuan", "route": '/status_pengajuan_screen'},
-      {"icon": Icons.person, "title": "Profil", "route": '/profil'},
+      {"icon": Icons.home, "title": "Dashboard", "route": '/dashboard_dosen'},
+      // {"icon": Icons.edit, "title": "Pengajuan Judul", "route": '/pengajuan_judul_screen'},
+      {"icon": Icons.list, "title": "Daftar Judul", "route": '/daftar_judul'},
+      {"icon": Icons.person, "title": "Profil", "route": '/profil_dosen'},
     ];
 
     return Drawer(

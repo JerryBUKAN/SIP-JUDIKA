@@ -24,7 +24,8 @@ class PengajuanJudulScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white), // Ikon kembali putih
           onPressed: () {
-            Navigator.pop(context); // Menutup halaman ini dan kembali ke halaman sebelumnya
+            // Kembali ke halaman Dashboard setelah klik panah kembali
+            Navigator.pushReplacementNamed(context, '/dashboard');
           },
         ),
       ),
@@ -52,8 +53,6 @@ class PengajuanJudulScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 _buildSubmitButton(context),
                 const SizedBox(height: 16),
-                // // Tombol Kembali di bawah
-                // _buildBackButton(context),
               ],
             ),
           ),

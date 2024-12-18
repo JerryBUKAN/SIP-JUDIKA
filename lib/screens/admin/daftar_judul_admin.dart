@@ -1,28 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:sip_judika/screens/admin/dashboard_admin.dart';
+import 'package:sip_judika/screens/admin/detail_judul_admin.dart';
 
-class StatusPengajuanScreen extends StatelessWidget {
+class DaftarJudulAdmin extends StatelessWidget {
   final List<Map<String, String>> pengajuan = [
-    {"judul": "Judul 1", "status": "Proses", "keterangan": "Menunggu persetujuan."},
-    {"judul": "Judul 2", "status": "Disetujui", "keterangan": "Judul sudah diterima."},
+    {
+      "judul": "Judul 1",
+      "status": "Proses",
+      "keterangan": "Menunggu persetujuan."
+    },
+    {
+      "judul": "Judul 2",
+      "status": "Disetujui",
+      "keterangan": "Judul sudah diterima."
+    },
   ];
 
-  StatusPengajuanScreen({super.key});
+  DaftarJudulAdmin({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Status Pengajuan",
-          style: TextStyle(color: Color.fromARGB(255, 252, 252, 252)), // Mengubah warna teks menjadi putih
+          "Daftar Judul",
+          style: TextStyle(
+              color: Color.fromARGB(
+                  255, 252, 252, 252)), // Mengubah warna teks menjadi putih
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white), // Tombol kembali dengan warna putih
+          icon: const Icon(Icons.arrow_back,
+              color: Colors.white), // Tombol kembali dengan warna putih
           onPressed: () {
             // Kembali ke halaman Dashboard setelah klik panah kembali
-            Navigator.pushReplacementNamed(context, '/dashboard');
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const DashboardAdminScreen()),
+            );
           },
         ),
       ),
@@ -66,24 +83,33 @@ class StatusPengajuanScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: TextButton(
+                        // onPressed: () {
+                        //   // Implementasikan aksi untuk melihat detail
+                        //   showDialog(
+                        //     context: context,
+                        //     builder: (context) {
+                        //       return AlertDialog(
+                        //         title: const Text("Detail Pengajuan"),
+                        //         content: Text(
+                        //             "Menampilkan detail untuk ${item["judul"]!}."),
+                        //         actions: <Widget>[
+                        //           TextButton(
+                        //             child: const Text("Tutup"),
+                        //             onPressed: () {
+                        //               Navigator.of(context).pop();
+                        //             },
+                        //           ),
+                        //         ],
+                        //       );
+                        //     },
+                        //   );
+                        // },
                         onPressed: () {
-                          // Implementasikan aksi untuk melihat detail
-                          showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                title: const Text("Detail Pengajuan"),
-                                content: Text("Menampilkan detail untuk ${item["judul"]!}."),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: const Text("Tutup"),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const DetailJudulAdmin()),
                           );
                         },
                         child: const Text(

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_create_sip_judika/widget/mahasiswa_drawer.dart';
-import 'pengajuan_judul_screen.dart';
-import 'status_pengajuan_screen.dart';
+import 'package:sip_judika/widget/admin_drawer.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardAdminScreen extends StatelessWidget {
   final bool isJudulSubmitted = false;
 
-  const DashboardScreen({super.key});
+  const DashboardAdminScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +15,15 @@ class DashboardScreen extends StatelessWidget {
           color: Colors.white, // Ubah garis tiga menjadi putih
         ),
       ),
-      drawer: MahasiswaDrawer(),
-      body: Padding(
+      drawer: const AdminDrawer(), // Menggunakan DosenDrawer saja
+      body: const Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Judul utama panel dashboard
             const Text(
-              "PANEL DASHBOARD MAHASISWA",
+              "PANEL DASHBOARD ADMIN",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -35,7 +33,7 @@ class DashboardScreen extends StatelessWidget {
             const SizedBox(height: 8),
             // Tambahkan teks selamat datang
             const Text(
-              "Selamat Datang, Mahasiswa!",
+              "Selamat Datang, Admin!",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -44,43 +42,43 @@ class DashboardScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             // Panel dengan background abu-abu terang
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 244, 244, 244), // Warna abu-abu terang
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                padding: const EdgeInsets.all(16),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, // Jumlah kolom
-                    crossAxisSpacing: 16,
-                    mainAxisSpacing: 16,
-                    childAspectRatio: 0.9, // Proporsi kartu tetap
-                  ),
-                  itemCount: 1, // Jumlah kartu (bisa ditambah sesuai kebutuhan)
-                  itemBuilder: (context, index) {
-                    return _buildMenuCard(
-                      icon: Icons.edit,
-                      color: Colors.orangeAccent, // Warna berbeda untuk card
-                      label: isJudulSubmitted
-                          ? "Lihat Status Pengajuan Judul"
-                          : "Ajukan Judul Skripsi",
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => isJudulSubmitted
-                                ? StatusPengajuanScreen()
-                                : PengajuanJudulScreen(),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ),
-            ),
+            // Expanded(
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       color: const Color.fromARGB(255, 244, 244, 244), // Warna abu-abu terang
+            //       borderRadius: BorderRadius.circular(12),
+            //     ),
+            //     padding: const EdgeInsets.all(16),
+            //     child: GridView.builder(
+            //       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //         crossAxisCount: 3, // Jumlah kolom
+            //         crossAxisSpacing: 16,
+            //         mainAxisSpacing: 16,
+            //         childAspectRatio: 0.9, // Proporsi kartu tetap
+            //       ),
+            //       itemCount: 1, // Jumlah kartu (bisa ditambah sesuai kebutuhan)
+            //       itemBuilder: (context, index) {
+            //         return _buildMenuCard(
+            //           icon: Icons.edit,
+            //           color: Colors.orangeAccent, // Warna berbeda untuk card
+            //           label: isJudulSubmitted
+            //               ? "Lihat Status Pengajuan Judul"
+            //               : "Ajukan Judul Skripsi",
+            //           onTap: () {
+            //             // Navigator.push(
+            //             //   context,
+            //             //   MaterialPageRoute(
+            //             //     builder: (context) => isJudulSubmitted
+            //             //         ? StatusPengajuanScreen()
+            //             //         : PengajuanJudulScreen(),
+            //             //   ),
+            //             // );
+            //           },
+            //         );
+            //       },
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

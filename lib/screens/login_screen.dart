@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dashboard_screen.dart';
+import 'package:sip_judika/screens/admin/dashboard_admin.dart';
+import 'package:sip_judika/screens/dosen/dashboard_dosen_screen.dart';
+import 'package:sip_judika/screens/mahasiswa/dashboard_mahasiswa_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -152,9 +154,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             // Logic autentikasi di sini
                             Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (context) => DashboardScreen()),
+                              // MaterialPageRoute(builder: (context) => const DashboardDosenScreen()
+                              // MaterialPageRoute(builder: (context) => const DashboardMahasiswaScreen()
+                              MaterialPageRoute(builder: (context) => const DashboardAdminScreen()
+                              ),
                             );
                           },
+                          // onPressed: () {
+                          //   // Logic autentikasi di sini
+                          //   Navigator.pushReplacement(
+                          //     context,
+                          //     MaterialPageRoute(builder: (context) => const DashboardScreen()),
+                          //   );
+                          // },
                           child: const Text(
                             "Login",
                             style: TextStyle(

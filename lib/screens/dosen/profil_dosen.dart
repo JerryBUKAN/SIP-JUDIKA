@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ProfilScreen extends StatelessWidget {
-  const ProfilScreen({super.key});
+class ProfilDosenScreen extends StatelessWidget {
+  const ProfilDosenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Profil Mahasiswa",
+          "Profil Dosen",
           style: TextStyle(color: Colors.white), 
         ),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -17,7 +17,7 @@ class ProfilScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back, color: Colors.white), // Tombol kembali
           onPressed: () {
             // Kembali ke halaman Dashboard
-            Navigator.pushReplacementNamed(context, '/dashboard');
+            Navigator.pushReplacementNamed(context, '/dashboard_dosen');
           },
         ),
       ),
@@ -45,11 +45,7 @@ class ProfilScreen extends StatelessWidget {
                 const SizedBox(height: 20),
 
                 // Nama Mahasiswa
-                _buildProfileInfo("Nama", "Mahasiswa", Icons.person),
-                const SizedBox(height: 16),
-
-                // Angkatan
-                _buildProfileInfo("Angkatan", "2021", Icons.group),
+                _buildProfileInfo("Nama", "Dosen", Icons.person),
                 const SizedBox(height: 16),
 
                 // Nomor Telepon
@@ -57,7 +53,7 @@ class ProfilScreen extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // Email
-                _buildProfileInfo("Email", "mahasiswa@example.com", Icons.email),
+                _buildProfileInfo("Email", "dosen@example.com", Icons.email),
                 const SizedBox(height: 40),
                 
                 // Tombol Edit Profil
