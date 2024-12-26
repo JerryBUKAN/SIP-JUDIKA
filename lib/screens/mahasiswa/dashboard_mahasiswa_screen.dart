@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sip_judika/models/user.dart';
 import 'package:sip_judika/widget/mahasiswa_drawer.dart';
 import 'pengajuan_judul_screen.dart';
 import 'status_pengajuan_screen.dart';
 
 class DashboardMahasiswaScreen extends StatelessWidget {
-  final bool isJudulSubmitted = false;
+  final User user;
+  final bool isJudulSubmitted = false; // Set false jika belum mengajukan judul, true jika sudah
+  
+  const DashboardMahasiswaScreen({required this.user});
 
-  const DashboardMahasiswaScreen({super.key});
+  // const DashboardMahasiswaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

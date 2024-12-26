@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       debugShowCheckedModeBanner: false, // Menghilangkan banner debug
       routes: {
-        '/login': (context) => const LoginScreen(),
-        '/dashboard_mahasiswa': (context) => const DashboardMahasiswaScreen(),
+        '/login': (context) => LoginScreen(),
+        // '/dashboard_mahasiswa': (context) => DashboardMahasiswaScreen(),
         '/dashboard_dosen': (context) => const DashboardDosenScreen(),
         '/pengajuan_judul_screen': (context) => PengajuanJudulScreen(),
         '/status_pengajuan_screen': (context) => StatusPengajuanScreen(),

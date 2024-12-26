@@ -1,34 +1,35 @@
 class User {
-  final String id;
+  final int id;
   final String name;
-  final String email;
-  final String role; // 'mahasiswa', 'dosen', atau 'admin'
+  final String username;
+  final String role;
+  final dynamic detail;
 
-  // Constructor untuk membuat instance User
   User({
     required this.id,
     required this.name,
-    required this.email,
+    required this.username,
     required this.role,
+    this.detail,
   });
 
-  // Fungsi untuk membuat User dari map (misalnya untuk parsing JSON)
-  factory User.fromMap(Map<String, dynamic> map) {
+  factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: map['id'],
-      name: map['name'],
-      email: map['email'],
-      role: map['role'],
+      id: json['id'],
+      name: json['nama'],
+      username: json['username'],
+      role: json['role'],
+      detail: json['detail'],
     );
   }
 
-  // Fungsi untuk mengubah User menjadi map (misalnya untuk menyimpan ke database)
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,
-      'email': email,
+      'username': username,
       'role': role,
+      'detail': detail,
     };
   }
 }
